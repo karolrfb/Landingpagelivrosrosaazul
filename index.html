@@ -1,14 +1,492 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Livraria Pétalas</title>
-    <meta name="description" content="Descubra mundos através das páginas. Uma curadoria especial de livros com entrega rápida e frete grátis." />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Livraria Pétalas</title>
+  <meta name="description" content="Descubra mundos através das páginas. Uma curadoria especial de livros com entrega rápida e frete grátis." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="navbar__inner">
+      <a href="#" class="navbar__logo">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        <span>Livraria Pétalas</span>
+      </a>
+
+      <ul class="navbar__links" id="navLinks">
+        <li><a href="#">Início</a></li>
+        <li><a href="#catalogo">Catálogo</a></li>
+        <li><a href="#categorias">Categorias</a></li>
+        <li><a href="#sobre">Sobre nós</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+
+      <div class="navbar__actions">
+        <button class="navbar__icon-btn" aria-label="Buscar">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </button>
+        <button class="btn btn--cart">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+          Carrinho
+        </button>
+      </div>
+
+      <button class="navbar__hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+        <svg class="icon-menu" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+        <svg class="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+    </div>
+
+    <div class="navbar__mobile" id="mobileMenu" aria-hidden="true">
+      <a href="#">Início</a>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#categorias">Categorias</a>
+      <a href="#sobre">Sobre nós</a>
+      <a href="#contato">Contato</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__inner">
+      <div class="hero__content">
+        <div class="hero__badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          +5.000 títulos disponíveis
+        </div>
+
+        <h1 class="hero__title">
+          Descubra mundos <br />
+          <span class="hero__title--accent">através das páginas</span>
+        </h1>
+
+        <p class="hero__text">
+          Uma curadoria especial de livros para quem ama uma boa leitura. Encontre sua próxima
+          história favorita com entrega rápida e frete grátis acima de R$99.
+        </p>
+
+        <div class="hero__ctas">
+          <a href="#catalogo" class="btn btn--primary">
+            Explorar catálogo
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+          <a href="#catalogo" class="btn btn--outline">Ver destaques</a>
+        </div>
+
+        <div class="hero__stats">
+          <div class="hero__stat">
+            <strong>5K+</strong>
+            <span>Títulos</span>
+          </div>
+          <div class="hero__stat">
+            <strong>12K+</strong>
+            <span>Leitores</span>
+          </div>
+          <div class="hero__stat">
+            <strong>4.9</strong>
+            <span>Avaliação</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__image-wrap">
+        <div class="hero__glow"></div>
+        <img
+          src="https://images.unsplash.com/photo-1706195546853-a81b6a190daf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxib29rcyUyMHJlYWRpbmclMjBjb3p5fGVufDF8fHx8MTc3Nzk5NTI5Mnww&ixlib=rb-4.1.0&q=80&w=1080"
+          alt="Pessoa lendo um livro com café"
+          class="hero__img"
+        />
+        <div class="hero__offer-badge">
+          <div class="hero__offer-label">OFERTA DO DIA</div>
+          <div class="hero__offer-text">30% OFF em Romance</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIVROS EM DESTAQUE -->
+  <section class="books" id="catalogo">
+    <div class="section-inner">
+      <div class="section-header">
+        <div>
+          <p class="section-eyebrow">Mais Vendidos</p>
+          <h2 class="section-title">Livros em Destaque</h2>
+        </div>
+        <a href="#" class="section-link">Ver todos →</a>
+      </div>
+
+      <div class="books__grid">
+
+        <article class="book-card">
+          <div class="book-card__cover" style="--cover-bg:#C9547A22">
+            <div class="book-card__spine" style="--spine-bg:#C9547A">A Redoma de Vidro</div>
+            <span class="book-card__tag">Bestseller</span>
+            <button class="book-card__heart" aria-label="Favoritar" data-liked="false">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+            </button>
+          </div>
+          <div class="book-card__body">
+            <h3 class="book-card__title">A Redoma de Vidro</h3>
+            <p class="book-card__author">Sylvia Plath</p>
+            <div class="book-card__stars" aria-label="4.9 estrelas">
+              <span class="star star--filled">★</span><span class="star star--filled">★</span><span class="star star--filled">★</span><span class="star star--filled">★</span><span class="star star--filled">★</span>
+              <span class="book-card__reviews">(342)</span>
+            </div>
+            <div class="book-card__pricing">
+              <strong>R$ 49,90</strong>
+              <s>R$ 69,90</s>
+            </div>
+            <button class="btn btn--add">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+              Adicionar
+            </button>
+          </div>
+        </article>
+
+        <article class="book-card">
+          <div class="book-card__cover" style="--cover-bg:#4A706022">
+            <div class="book-card__spine" style="--spine-bg:#4A7060">Orgulho e Preconceito</div>
+            <span class="book-card__tag">Clássico</span>
+            <button class="book-card__heart" aria-label="Favoritar" data-liked="false">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+            </button>
+          </div>
+          <div class="book-card__body">
+            <h3 class="book-card__title">Orgulho e Preconceito</h3>
+            <p class="book-card__author">Jane Austen</p>
+            <div class="book-card__stars" aria-label="4.8 estrelas">
+              <span class="star star--filled">★</span><span class="star star--filled">★</span><span class="star star--filled">★</span><span class="star star--filled">★</span><span class="star star--half">★</span>
+              <span class="book-card__reviews">(891)</span>
+            </div>
+            <div class="book-card__pricing">
+              <strong>R$ 39,90</strong>
+              <s>R$ 54,90</s>
+            </div>
+            <button class="btn btn--add">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+              Adicionar
+            </button>
+          </div>
+        </article>
+
+        <article class="book-card">
+          <div class="book-card__cover" style="--cover-bg:#E0759422">
+            <div class="book-card__spine" style="--spine-bg:#E07594">Normal People</div>
+            <span class="book-card__tag">Novo</span>
+            <button class="book-card__heart" aria-label="Favoritar" data-liked="false">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+            </button>
+          </div>
+          <div class="book-card__body">
+            <h3 class="book-card__title">Normal People</h3>
+            <p class="book-card__author">Sally Rooney</p>
+            <div class="book-card__stars" aria-label="4.7 estrelas">
+              <span class="star star--filled">★</span><span class="star star--filled">★</span><span class="star star--filled">★</span><span class="star star--filled">★</span><span class="star star--half">★</span>
+              <span class="book-card__reviews">(567)</span>
+            </div>
+            <div class="book-card__pricing">
+              <strong>R$ 44,90</strong>
+            </div>
+            <button class="btn btn--add">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+              Adicionar
+            </button>
+          </div>
+        </article>
+
+        <article class="book-card">
+          <div class="book-card__cover" style="--cover-bg:#2E534722">
+            <div class="book-card__spine" style="--spine-bg:#2E5347">O Morro dos Ventos Uivantes</div>
+            <span class="book-card__tag">Romance</span>
+            <button class="book-card__heart" aria-label="Favoritar" data-liked="false">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+            </button>
+          </div>
+          <div class="book-card__body">
+            <h3 class="book-card__title">O Morro dos Ventos Uivantes</h3>
+            <p class="book-card__author">Emily Brontë</p>
+            <div class="book-card__stars" aria-label="4.8 estrelas">
+              <span class="star star--filled">★</span><span class="star star--filled">★</span><span class="star star--filled">★</span><span class="star star--filled">★</span><span class="star star--half">★</span>
+              <span class="book-card__reviews">(412)</span>
+            </div>
+            <div class="book-card__pricing">
+              <strong>R$ 37,90</strong>
+              <s>R$ 52,00</s>
+            </div>
+            <button class="btn btn--add">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+              Adicionar
+            </button>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORIAS -->
+  <section class="categories" id="categorias">
+    <div class="section-inner">
+      <div class="section-header section-header--centered">
+        <p class="section-eyebrow">Explore</p>
+        <h2 class="section-title">Categorias Populares</h2>
+        <p class="section-subtitle">Encontre o gênero que combina com você</p>
+      </div>
+
+      <div class="categories__grid">
+        <button class="cat-card" style="--cat-bg:#FDF0F4;--cat-color:#E07594">
+          <div class="cat-card__icon">❤️</div>
+          <strong>Romance</strong>
+          <span>1.2K livros</span>
+        </button>
+        <button class="cat-card" style="--cat-bg:#EFF5F3;--cat-color:#4A7060">
+          <div class="cat-card__icon">✨</div>
+          <strong>Fantasia</strong>
+          <span>890 livros</span>
+        </button>
+        <button class="cat-card" style="--cat-bg:#F5EFF6;--cat-color:#9B59A0">
+          <div class="cat-card__icon">🌍</div>
+          <strong>Internacional</strong>
+          <span>640 livros</span>
+        </button>
+        <button class="cat-card" style="--cat-bg:#FBF2EC;--cat-color:#D97B45">
+          <div class="cat-card__icon">🧠</div>
+          <strong>Autoajuda</strong>
+          <span>530 livros</span>
+        </button>
+        <button class="cat-card" style="--cat-bg:#FBE8EF;--cat-color:#C9547A">
+          <div class="cat-card__icon">🪶</div>
+          <strong>Poesia</strong>
+          <span>280 livros</span>
+        </button>
+        <button class="cat-card" style="--cat-bg:#EBF5F7;--cat-color:#3B7A8C">
+          <div class="cat-card__icon">🔭</div>
+          <strong>Ficção Científica</strong>
+          <span>410 livros</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE NÓS -->
+  <section class="about" id="sobre">
+    <div class="section-inner">
+      <div class="about__grid">
+        <div class="about__image-wrap">
+          <div class="about__glow"></div>
+          <img
+            src="https://images.unsplash.com/photo-1765547683057-52188e9b4107?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHw0fHxib29rc3RvcmUlMjBzaGVsZiUyMGxpYnJhcnklMjBhZXN0aGV0aWN8ZW58MXx8fHwxNzc3OTk1Mjk2fDA&ixlib=rb-4.1.0&q=80&w=1080"
+            alt="Estante de livros"
+            class="about__img"
+          />
+          <div class="about__years-badge">
+            <div class="about__years-num">15+</div>
+            <div class="about__years-label">Anos de história</div>
+          </div>
+        </div>
+
+        <div class="about__content">
+          <p class="section-eyebrow">Nossa história</p>
+          <h2 class="section-title">
+            Mais do que uma livraria, <span class="text-accent">uma comunidade</span>
+          </h2>
+          <p class="about__text">
+            Fundada com amor pela literatura, a Livraria Pétalas nasceu do sonho de criar um espaço
+            onde cada leitor pudesse encontrar não apenas livros, mas experiências únicas. Acreditamos
+            que cada história tem o poder de transformar vidas.
+          </p>
+          <p class="about__text">
+            Com uma curadoria cuidadosa e apaixonada, selecionamos os melhores títulos nacionais e
+            internacionais para você. Nossa missão é conectar pessoas a histórias que importam.
+          </p>
+          <a href="#" class="btn btn--pink">Conheça nossa história</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFERENCIAIS -->
+  <section class="perks">
+    <div class="section-inner">
+      <div class="perks__grid">
+        <div class="perk">
+          <div class="perk__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg>
+          </div>
+          <div>
+            <strong>Frete Grátis</strong>
+            <span>Nas compras acima de R$ 99</span>
+          </div>
+        </div>
+        <div class="perk">
+          <div class="perk__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>
+          </div>
+          <div>
+            <strong>Compra Segura</strong>
+            <span>Pagamento 100% protegido</span>
+          </div>
+        </div>
+        <div class="perk">
+          <div class="perk__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg>
+          </div>
+          <div>
+            <strong>Troca Fácil</strong>
+            <span>30 dias para devoluções</span>
+          </div>
+        </div>
+        <div class="perk">
+          <div class="perk__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/></svg>
+          </div>
+          <div>
+            <strong>Suporte 24h</strong>
+            <span>Atendimento sempre disponível</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section class="testimonials">
+    <div class="section-inner">
+      <div class="section-header section-header--centered">
+        <p class="section-eyebrow">Depoimentos</p>
+        <h2 class="section-title">O que nossas leitoras dizem</h2>
+      </div>
+
+      <div class="testimonials__grid">
+
+        <article class="testimonial-card">
+          <svg class="testimonial-card__quote" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
+          <p>A Livraria Pétalas mudou completamente minha relação com a leitura. A curadoria é incrível e sempre encontro exatamente o que preciso!</p>
+          <div class="testimonial-card__stars">★★★★★</div>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar" style="background:#E07594">AL</div>
+            <div>
+              <strong>Ana Lima</strong>
+              <span>Leitora assídua</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="testimonial-card">
+          <svg class="testimonial-card__quote" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
+          <p>Frete rápido, embalagem linda e livros de qualidade impecável. Recomendo de olhos fechados para qualquer leitor.</p>
+          <div class="testimonial-card__stars">★★★★★</div>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar" style="background:#4A7060">MC</div>
+            <div>
+              <strong>Mariana Costa</strong>
+              <span>Bookstagrammer</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="testimonial-card">
+          <svg class="testimonial-card__quote" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
+          <p>O atendimento é excepcional e o acervo é muito rico. Encontrei títulos raríssimos que não achava em lugar nenhum.</p>
+          <div class="testimonial-card__stars">★★★★★</div>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar" style="background:#C9547A">BS</div>
+            <div>
+              <strong>Beatriz Santos</strong>
+              <span>Professora de Literatura</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter" id="contato">
+    <div class="newsletter__glow newsletter__glow--top"></div>
+    <div class="newsletter__glow newsletter__glow--bottom"></div>
+    <div class="section-inner newsletter__inner">
+      <div class="newsletter__icon-wrap">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      </div>
+      <h2>Receba novidades em primeira mão</h2>
+      <p>Assine nossa newsletter e receba lançamentos, promoções exclusivas e dicas de leitura diretamente no seu e-mail.</p>
+
+      <form class="newsletter__form" id="newsletterForm" novalidate>
+        <input type="email" placeholder="seu@email.com" required class="newsletter__input" id="newsletterEmail" />
+        <button type="submit" class="btn btn--pink newsletter__btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+          Quero receber
+        </button>
+      </form>
+
+      <div class="newsletter__success" id="newsletterSuccess" hidden>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+        Ótimo! Você está na lista. 🎉
+      </div>
+
+      <p class="newsletter__disclaimer">Sem spam. Cancele quando quiser.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="section-inner footer__inner">
+      <div class="footer__brand">
+        <div class="footer__logo">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          <span>Livraria Pétalas</span>
+        </div>
+        <p>Conectando leitores às melhores histórias desde 2010. Porque toda vida merece uma boa leitura.</p>
+        <div class="footer__socials">
+          <button aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+          </button>
+          <button aria-label="Twitter">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+          </button>
+          <button aria-label="Facebook">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <h4>Livraria</h4>
+        <a href="#">Catálogo</a>
+        <a href="#">Novidades</a>
+        <a href="#">Bestsellers</a>
+        <a href="#">Promoções</a>
+      </div>
+
+      <div class="footer__col">
+        <h4>Ajuda</h4>
+        <a href="#">Frete e Entrega</a>
+        <a href="#">Trocas e Devoluções</a>
+        <a href="#">Rastreio do Pedido</a>
+        <a href="#">FAQ</a>
+      </div>
+
+      <div class="footer__col">
+        <h4>Institucional</h4>
+        <a href="#">Sobre nós</a>
+        <a href="#">Blog</a>
+        <a href="#">Trabalhe conosco</a>
+        <a href="#">Parceiros</a>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <span>© 2026 Livraria Pétalas. Todos os direitos reservados.</span>
+      <span>Feito com 💗 para leitores apaixonados</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
 </html>
